@@ -1,0 +1,250 @@
+/* 1. RESET AND BASE STYLES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F8EFEC;
+    color: rgb(73, 44, 53);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.8;
+    padding: 0 8%;
+}
+
+
+/* 2. HEADER AND NAVIGATION */
+header {
+    text-align: center;
+    padding: 42px 20px 22px;
+    border-bottom: 1px solid #D6AAA9;
+}
+
+h1,
+h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+}
+
+h1 {
+    color: #742C3A;
+    font-size: 2.4rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+nav a {
+    display: inline-block;
+    color: #98515D;
+    background-color: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin: 0 4px;
+    border-bottom: 1px solid transparent;
+}
+
+/* Navigation hover effect */
+nav a:hover {
+    color: #742C3A;
+    border-bottom-color: #A85F6B;
+}
+
+
+/* 3. MAIN CONTENT AND CARDS */
+main {
+    padding: 35px 0 15px;
+}
+
+.card {
+    width: 500px;
+    max-width: 100%;
+    background-color: #FCF7F4;
+    color: #492C35;
+    padding: 30px;
+    border: 1px solid #D6AAA9;
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+}
+
+/* The later rule wins because both selectors have equal specificity. */
+.card {
+    margin-bottom: 28px;
+}
+
+/* About section */
+#about {
+    position: relative;
+    border-color: #C58A91;
+    padding-top: 40px;
+    background-color: #FCF7F4;
+}
+
+/* Badge positioned in the top-right corner */
+#about::after {
+    content: "PROFILE";
+    position: absolute;
+    top: 8px;
+    right: 0;
+    color: white;
+    background-color: #B66F7A;
+    font-family: Arial, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 3px 12px;
+}
+
+
+/* 4. HEADINGS AND TEXT */
+h2 {
+    color: #813B49;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E5C9C8;
+}
+
+/* Decorative heading mark */
+h2::before {
+    content: "— ";
+    color: #B66F7A;
+}
+
+/* Descendant selector */
+.card p {
+    color: #593D46;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+/* First introduction rule */
+.intro {
+    color: #A36C74;
+}
+
+/* This rule wins because it has greater specificity. */
+.card .intro {
+    color: #492C35;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Style the first letter */
+.intro::first-letter {
+    color: #B66F7A;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+
+/* 5. SKILLS AND FLEXBOX */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+    list-style: none;
+    margin-top: 18px;
+}
+
+.skills-list > li {
+    color: #742C3A;
+    background-color: #F0DCDD;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 8px 18px;
+    border: 1px solid #E5C9C8;
+    border-radius: 2px;
+}
+
+
+/* 6. DISPLAY AND VISIBILITY */
+.hide-none {
+    display: none;
+}
+
+.hide-visibility {
+    visibility: hidden;
+}
+
+/* display: none removes the element and its space.
+   visibility: hidden hides the element but preserves its space. */
+
+
+/* 7. HOBBIES SCROLL BOX */
+/* I specifically changed the Hobbies box background color
+   to make it stand out from the other profile cards. */
+.scroll-box {
+    height: 180px;
+    overflow: auto;
+    background-color: #F4E5E3;
+    border-color: #D6AAA9;
+    scrollbar-width: thin;
+    scrollbar-color: #C1848D #F4E5E3;
+}
+
+/* Custom scrollbar for Chrome, Edge, and other WebKit browsers */
+.scroll-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+    background-color: #F4E5E3;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+    background-color: #C1848D;
+    border-radius: 10px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb:hover {
+    background-color: #A86570;
+}
+
+
+/* 8. FOOTER */
+footer {
+    text-align: center;
+    color: #FFF8F5;
+    background-color: #A86570;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 20px 15px;
+    margin-top: 15px;
+}
+
+
+/* 9. BOX MODEL WIDTH CALCULATION */
+
+/* With border-box, the card's total rendered width is 500px.
+   Content: 438px; horizontal padding: 60px; borders: 2px.
+   Total: 438px + 60px + 2px = 500px. */
+
+
+/* 10. REFLECTION QUESTIONS */
+
+/*
+1. The .card .intro rule wins because it has greater specificity
+   than .intro. It contains two class selectors, while .intro
+   contains only one class selector.
+
+2. With content-box, the rendered width would be 562px.
+   Computation: 500px content + 60px horizontal padding
+   + 2px total border = 562px.
+
+3. I would use visibility: hidden when I want to hide an
+   element while preserving its space in the layout. This
+   prevents surrounding elements from shifting.
+*/
